@@ -24,6 +24,8 @@ const Maybe = value => {
         return value;
     }
 
+    self.toString = () => `Maybe(${value})`;
+
     return self;
 };
 

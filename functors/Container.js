@@ -5,6 +5,7 @@
 const Container = value => ({
     // map :: (a -> b) -> Container a -> Container b
     map: f => Container.of(f(value)),
+    toString: () => `Container(${value})`;
 });
 
 Container.of = value => Container(value);

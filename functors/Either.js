@@ -7,6 +7,8 @@ const Left = value => {
     // map :: (a -> b) -> Left
     self.map = f => self;
 
+    self.toString = () => `Left(${value})`;
+
     return self;
 };
 
@@ -18,6 +20,7 @@ Left.of = value => Left(value);
 const Right = value => ({
     // map :: (a -> b) -> Right b
     map: f => Right.of(f(value)),
+    toString: () => `Right(${value})`,
 });
 
 Right.of = value => Right(value);
