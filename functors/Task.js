@@ -1,14 +1,10 @@
+import isFunc from "../functions/isFunc";
+
 /**
  * Task Functor
  **/
 const Task = value => ({
-    map: f => {
-        if (typeof value === "function") {
-            return value(error => error, value => f(Task.of(value)));
-        }
-
-        return Task.of(f(value));
-    },
+    map: f => isFunc(value) ? value(error => error, value => f(Task.of(value))) : Task.of(f(value)),
 
     fork: (reject, result) => value(reject, result),
 
